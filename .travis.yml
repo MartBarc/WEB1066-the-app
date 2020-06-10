@@ -28,7 +28,63 @@ jobs:
       script:
         - ./gradlew jacocoTestReport
         - find . -name jacocoTestReport.csv|xargs cat|awk -F',' '{print $3" "$4" "$5}'
-        - ./gradlew test jacocoTestCoverageVerification
+        - COVERAGE=$COVERAGE_VAR ./gradlew test jacocoTestCoverageVerification
+      env:
+        - COVERAGE_VAR = 0.7
+
+    - stage: tests-coverage
+      name: "Test-Coverage"
+      script:
+        - ./gradlew jacocoTestReport
+        - find . -name jacocoTestReport.csv|xargs cat|awk -F',' '{print $3" "$4" "$5}'
+        - COVERAGE=$COVERAGE_VAR ./gradlew test jacocoTestCoverageVerification
+      env:
+        - COVERAGE_VAR = 0.6
+
+    - stage: tests-coverage
+      name: "Test-Coverage"
+      script:
+        - ./gradlew jacocoTestReport
+        - find . -name jacocoTestReport.csv|xargs cat|awk -F',' '{print $3" "$4" "$5}'
+        - COVERAGE=$COVERAGE_VAR ./gradlew test jacocoTestCoverageVerification
+      env:
+        - COVERAGE_VAR = 0.5
+
+    - stage: tests-coverage
+      name: "Test-Coverage"
+      script:
+        - ./gradlew jacocoTestReport
+        - find . -name jacocoTestReport.csv|xargs cat|awk -F',' '{print $3" "$4" "$5}'
+        - COVERAGE=$COVERAGE_VAR ./gradlew test jacocoTestCoverageVerification
+      env:
+        - COVERAGE_VAR = 0.4
+
+    - stage: tests-coverage
+      name: "Test-Coverage"
+      script:
+        - ./gradlew jacocoTestReport
+        - find . -name jacocoTestReport.csv|xargs cat|awk -F',' '{print $3" "$4" "$5}'
+        - COVERAGE=$COVERAGE_VAR ./gradlew test jacocoTestCoverageVerification
+      env:
+        - COVERAGE_VAR = 0.3
+
+    - stage: tests-coverage
+      name: "Test-Coverage"
+      script:
+        - ./gradlew jacocoTestReport
+        - find . -name jacocoTestReport.csv|xargs cat|awk -F',' '{print $3" "$4" "$5}'
+        - COVERAGE=$COVERAGE_VAR ./gradlew test jacocoTestCoverageVerification
+      env:
+        - COVERAGE_VAR = 0.2
+
+    - stage: tests-coverage
+      name: "Test-Coverage"
+      script:
+        - ./gradlew jacocoTestReport
+        - find . -name jacocoTestReport.csv|xargs cat|awk -F',' '{print $3" "$4" "$5}'
+        - COVERAGE=$COVERAGE_VAR ./gradlew test jacocoTestCoverageVerification
+      env:
+        - COVERAGE_VAR = 0.1
 
     - stage: deploy #Temporary deploy
       name: "Deployment"
