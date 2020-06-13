@@ -14,7 +14,7 @@ stages:
 jobs:
   include:
     - stage: tests
-      script: ./gradlew test
+      script: ./gradlew test #part 2
 
 notifications:
   email: false
