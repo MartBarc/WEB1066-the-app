@@ -28,51 +28,37 @@ jobs:
     - stage: tests-coverage
       name: "Test-Coverage"
       script:
-        - COVERAGE=$COVERAGE_VAR ./gradlew test jacocoTestCoverageVerification
-      env:
-        - COVERAGE_VAR = 0.7
+        - COVERAGE=0.7 ./gradlew test jacocoTestCoverageVerification
 
     - stage: tests-coverage
       name: "Test-Coverage"
       script:
-        - COVERAGE=$COVERAGE_VAR ./gradlew test jacocoTestCoverageVerification
-      env:
-        - COVERAGE_VAR = 0.6
+        - COVERAGE=0.6 ./gradlew test jacocoTestCoverageVerification
 
     - stage: tests-coverage
       name: "Test-Coverage"
       script:
-        - COVERAGE=$COVERAGE_VAR ./gradlew test jacocoTestCoverageVerification
-      env:
-        - COVERAGE_VAR = 0.5
+        - COVERAGE=0.5 ./gradlew test jacocoTestCoverageVerification
 
     - stage: tests-coverage
       name: "Test-Coverage"
       script:
-        - COVERAGE=$COVERAGE_VAR ./gradlew test jacocoTestCoverageVerification
-      env:
-        - COVERAGE_VAR = 0.4
+        - COVERAGE=0.4 ./gradlew test jacocoTestCoverageVerification
 
     - stage: tests-coverage
       name: "Test-Coverage"
       script:
-        - COVERAGE=$COVERAGE_VAR ./gradlew test jacocoTestCoverageVerification
-      env:
-        - COVERAGE_VAR = 0.3
+        - COVERAGE=0.3 ./gradlew test jacocoTestCoverageVerification
 
     - stage: tests-coverage
       name: "Test-Coverage"
       script:
-        - COVERAGE=$COVERAGE_VAR ./gradlew test jacocoTestCoverageVerification
-      env:
-        - COVERAGE_VAR = 0.2
+        - COVERAGE=0.2 ./gradlew test jacocoTestCoverageVerification
 
     - stage: tests-coverage
       name: "Test-Coverage"
       script:
-        - COVERAGE=$COVERAGE_VAR ./gradlew test jacocoTestCoverageVerification
-      env:
-        - COVERAGE_VAR = 0.1
+        - COVERAGE=0.1 ./gradlew test jacocoTestCoverageVerification
 
     - stage: test-report
       name: "Test-Report"
