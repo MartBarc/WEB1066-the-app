@@ -4,7 +4,7 @@ dist: trusty
 
 branches:
   only:
-    - assignment-part3
+    - assignment-part3 #part3
 
 before_install:
   - java -version
