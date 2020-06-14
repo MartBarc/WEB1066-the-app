@@ -22,36 +22,43 @@ stages:
 jobs:
   include:
     - stage: tests
+      jdk: oraclejdk9
       env:
         - COVERAGE=0.5
       script:
         - ./gradlew -p ./monolithic/ui check
     - stage: tests
+      jdk: oraclejdk9
       env:
         - COVERAGE=0.5
       script:
         - ./gradlew -p ./monolithic/service/cart check
     - stage: tests
+      jdk: oraclejdk9
       env:
         - COVERAGE=0.5
       script:
         - ./gradlew -p ./monolithic/service/user check
     - stage: tests
+      jdk: oraclejdk9
       env:
         - COVERAGE=0.24
       script:
         - ./gradlew -p ./monolithic/repository/order check
     - stage: tests
+      jdk: oraclejdk9
       env:
         - COVERAGE=0.5
       script:
         - ./gradlew -p ./monolithic/repository/cart check
     - stage: tests
+      jdk: oraclejdk9
       env:
         - COVERAGE=0.5
       script:
         - ./gradlew -p ./monolithic/repository/product check
     - stage: tests
+      jdk: oraclejdk9
       env:
         - COVERAGE=0.24
       script:
