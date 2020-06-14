@@ -1,17 +1,27 @@
 language: java
 dist: trusty
+services:
+  - docker
 
 branches:
   only:
-    - assignment-part7
+    - assignment-part8
 
 install:
   - ./gradlew clean jar
 
+script:
+  - travis encrypt DOCKER_PASSWORD-password --add env.global --com
+  - docker login -u="$DOCKER_USERNAME" -p"$DOCKER_PASSWORD"
+  - bash -c "echo \"${DOCKER_PASSWORD}\" | docker login --username \"$DOCKER_LOGIN\" --password-stdin"
+
 stages:
+  - test #actually docker login
   - tests
   - tests-report
   - deploy
+
+#Mssd15807do
 
 jobs:
   include:
