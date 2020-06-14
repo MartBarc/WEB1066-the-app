@@ -19,26 +19,16 @@ before_install:
 install:
   - ./gradlew clean jar
 
-stages:
-  - tests
-  - deploy
+script:
+  - ./gradlew test
+  - ./gradlew jacocoTestReport
+  - find . -name jacocoTestReport.csv|xargs cat|awk -F',' '{print $3" "$4" "$5}'
+  - ./gradlew test jacocoTestCoverageVerification
 
-jobs:
-  include:
-    - stage: tests
-      name: "Testing"
-      script:
-        - ./gradlew test
-        - ./gradlew jacocoTestReport
-        - find . -name jacocoTestReport.csv|xargs cat|awk -F',' '{print $3" "$4" "$5}'
-        - ./gradlew test jacocoTestCoverageVerification
-
-    - stage: deploy #Temporary deploy
-      name: "Deployment"
-      script:
-        - echo 'WIP'
-      deploy:
-        cleanup: true
+deploy:
+  script:
+    - echo 'WIP'
+  cleanup: true
 
 notifications:
   email: false
