@@ -1,13 +1,15 @@
 language: java
 dist: trusty
-jdk:
-  - oraclejdk8
 services:
   - docker
 
 branches:
   only:
     - assignment-part8
+
+env:
+   - JDK_VERSION=oraclejdk8
+   - JDK_VERSION=oraclejdk9
 
 install:
   - ./gradlew clean jar
