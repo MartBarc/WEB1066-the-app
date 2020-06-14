@@ -13,8 +13,10 @@ env:
 
 install:
   - ./gradlew clean jar
+  - gem install travis
 
 script:
+  - travis login --pro
   - travis encrypt DOCKER_PASSWORD-password-stdin --add env.global --com
   #- docker login -u="$DOCKER_USERNAME" -p"$DOCKER_PASSWORD"
   - bash -c "echo \"${DOCKER_PASSWORD}\" | docker login --username\"$DOCKER_LOGIN\" --password-stdin"
