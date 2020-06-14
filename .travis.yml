@@ -14,55 +14,55 @@ script:
   - travis encrypt DOCKER_PASSWORD-password-stdin --add env.global --com
   #- docker login -u="$DOCKER_USERNAME" -p"$DOCKER_PASSWORD"
   - bash -c "echo \"${DOCKER_PASSWORD}\" | docker login --username\"$DOCKER_LOGIN\" --password-stdin"
-
+  #docker push martbarc/web1066-the-app:tagname
 
 stages:
   - test #actually docker stage
-  - tests
+  - tests-check
   - tests-report
   - deploy
 
 jobs:
   include:
     # JDK8
-    - stage: tests
+    - stage: tests-check
       jdk:
         - oraclejdk8
       env:
         - COVERAGE=0.5
       script:
         - ./gradlew -p ./monolithic/ui check
-    - stage: tests
+    - stage: tests-check
       jdk: oraclejdk8
       env:
         - COVERAGE=0.5
       script:
         - ./gradlew -p ./monolithic/service/cart check
-    - stage: tests
+    - stage: tests-check
       jdk: oraclejdk8
       env:
         - COVERAGE=0.5
       script:
         - ./gradlew -p ./monolithic/service/user check
-    - stage: tests
+    - stage: tests-check
       jdk: oraclejdk8
       env:
         - COVERAGE=0.24
       script:
         - ./gradlew -p ./monolithic/repository/order check
-    - stage: tests
+    - stage: tests-check
       jdk: oraclejdk8
       env:
         - COVERAGE=0.5
       script:
         - ./gradlew -p ./monolithic/repository/cart check
-    - stage: tests
+    - stage: tests-check
       jdk: oraclejdk8
       env:
         - COVERAGE=0.5
       script:
         - ./gradlew -p ./monolithic/repository/product check
-    - stage: tests
+    - stage: tests-check
       jdk: oraclejdk8
       env:
         - COVERAGE=0.24
@@ -70,44 +70,44 @@ jobs:
         - ./gradlew -p ./monolithic/repository/user check
 
     # JDK9
-    - stage: tests
+    - stage: tests-check
       jdk:
         - oraclejdk9
       env:
         - COVERAGE=0.5
       script:
         - ./gradlew -p ./monolithic/ui check
-    - stage: tests
+    - stage: tests-check
       jdk: oraclejdk9
       env:
         - COVERAGE=0.5
       script:
         - ./gradlew -p ./monolithic/service/cart check
-    - stage: tests
+    - stage: tests-check
       jdk: oraclejdk9
       env:
         - COVERAGE=0.5
       script:
         - ./gradlew -p ./monolithic/service/user check
-    - stage: tests
+    - stage: tests-check
       jdk: oraclejdk9
       env:
         - COVERAGE=0.24
       script:
         - ./gradlew -p ./monolithic/repository/order check
-    - stage: tests
+    - stage: tests-check
       jdk: oraclejdk9
       env:
         - COVERAGE=0.5
       script:
         - ./gradlew -p ./monolithic/repository/cart check
-    - stage: tests
+    - stage: tests-check
       jdk: oraclejdk9
       env:
         - COVERAGE=0.5
       script:
         - ./gradlew -p ./monolithic/repository/product check
-    - stage: tests
+    - stage: tests-check
       jdk: oraclejdk9
       env:
         - COVERAGE=0.24
