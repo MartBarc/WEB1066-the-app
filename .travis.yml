@@ -3,8 +3,7 @@ jdk: oraclejdk8
 dist: trusty
 
 env:
-  - COVERAGE=0.6
-  - COVERAGE=0.5
+  - COVERAGE=0.5 #expected
   - COVERAGE=0.4
   - COVERAGE=0.3
   - COVERAGE=0.2
@@ -20,23 +19,26 @@ before_install:
 install:
   - ./gradlew clean jar
 
-script:
-  - ./gradlew test
-  - ./gradlew jacocoTestReport
-  - find . -name jacocoTestReport.csv|xargs cat|awk -F',' '{print $3" "$4" "$5}'
-  - ./gradlew test jacocoTestCoverageVerification
-
 stages:
+  - tests
   - deploy
 
 jobs:
   include:
+    - stage: tests
+      name: "Testing"
+      script:
+        - ./gradlew test
+        - ./gradlew jacocoTestReport
+        - find . -name jacocoTestReport.csv|xargs cat|awk -F',' '{print $3" "$4" "$5}'
+        - ./gradlew test jacocoTestCoverageVerification
+
     - stage: deploy #Temporary deploy
       name: "Deployment"
       script:
         - echo 'WIP'
       deploy:
-        skip_cleanup: true
+        cleanup: true
 
 notifications:
   email: false
