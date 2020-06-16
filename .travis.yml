@@ -16,7 +16,8 @@ install:
   - ./gradlew clean jar
 
 script:
-  - gem install travis
+  - sudo apt install ruby ruby-dev
+  - sudo gem install travis
   #- travis login --org --auto #--github-token $PERSONAL_TOKEN
   #- travis report
   #- travis env set DOCKER_USERNAME myusername
