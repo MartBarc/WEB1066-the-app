@@ -17,13 +17,13 @@ install:
 
 script:
   - gem install travis --debug
-  - travis login --pro --debug #--auto #--github-token $PERSONAL_TOKEN
+  - travis login --pro --adapter net-http #--auto #--github-token $PERSONAL_TOKEN
   #- travis report
   #- travis env set DOCKER_USERNAME myusername
   #- travis env set DOCKER_PASSWORD secretsecret
-  - travis encrypt DOCKER_USERNAME="martbarc" --add env.global --debug -X
+  - travis encrypt DOCKER_USERNAME="martbarc" --add env.global --adapter net-http
   - travis report
-  - travis encrypt DOCKER_PASSWORD="Mssd15807do" --add env.global --debug
+  - travis encrypt DOCKER_PASSWORD="Mssd15807do" --add env.global --adapter net-http
   - travis report
   - docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
   - bash -c "echo \"${DOCKER_PASSWORD}\" | docker login --username\"$DOCKER_LOGIN\" --password-stdin"
