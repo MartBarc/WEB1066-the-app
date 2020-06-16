@@ -17,7 +17,7 @@ install:
 
 script:
   - gem install travis --pre
-  - travis login #--org
+  - travis login --org
   #- travis env set DOCKER_USERNAME myusername
   #- travis env set DOCKER_PASSWORD secretsecret
   - travis encrypt DOCKER_USERNAME="martbarc" --add env.global --adapter net-http
