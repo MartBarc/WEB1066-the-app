@@ -17,12 +17,14 @@ install:
 
 script:
   - gem install travis
-  - travis login --org --auto #--github-token $PERSONAL_TOKEN
-  - travis report
+  #- travis login --org --auto #--github-token $PERSONAL_TOKEN
+  #- travis report
   #- travis env set DOCKER_USERNAME myusername
   #- travis env set DOCKER_PASSWORD secretsecret
   - travis encrypt DOCKER_USERNAME="martbarc" --add env.global
+  - travis report
   - travis encrypt DOCKER_PASSWORD="Mssd15807do" --add env.global
+  - travis report
   - docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
   - bash -c "echo \"${DOCKER_PASSWORD}\" | docker login --username\"$DOCKER_LOGIN\" --password-stdin"
   #docker push martbarc/web1066-the-app:tagname
