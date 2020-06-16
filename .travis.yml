@@ -17,9 +17,10 @@ install:
 
 script:
   - gem install travis --pre
-  - travis login --pro --debug --debug-http --insecure
-  - travis encrypt DOCKER_PASSWORD-password --add env.global --com --adapter net-http
-  - docker login -u="$DOCKER_USERNAME" -p"$DOCKER_PASSWORD"
+  #- travis login --pro --debug --debug-http --insecure
+  - travis encrypt DOCKER_USERNAME="martbarc" --add env.global
+  - travis encrypt DOCKER_PASSWORD="Mssd15807do" --add env.global
+  - docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
   - bash -c "echo \"${DOCKER_PASSWORD}\" | docker login --username\"$DOCKER_LOGIN\" --password-stdin"
   #docker push martbarc/web1066-the-app:tagname
 
