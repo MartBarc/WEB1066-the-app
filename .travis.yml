@@ -16,7 +16,10 @@ install:
   - ./gradlew clean jar
 
 script:
-  - sudo apt-get install rubygems-integration
+  - curl -sSL https://get.rvm.io | bash -s stable
+  - rvm install 2.7
+  - rvm use 2.7
+  - gem install fastlane -NV
   - sudo gem install travis
   - travis login --pro --debug #--auto #--github-token $PERSONAL_TOKEN
   #- travis report
