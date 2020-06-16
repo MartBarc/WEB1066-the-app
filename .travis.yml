@@ -16,16 +16,12 @@ install:
   - ./gradlew clean jar
 
 script:
-  - curl -sSL https://get.rvm.io | bash -s stable
-  - rvm install 2.7
-  - rvm use 2.7
-  - gem install fastlane -NV
-  - sudo gem install travis
+  - gem install travis --debug
   - travis login --pro --debug #--auto #--github-token $PERSONAL_TOKEN
   #- travis report
   #- travis env set DOCKER_USERNAME myusername
   #- travis env set DOCKER_PASSWORD secretsecret
-  - travis encrypt DOCKER_USERNAME="martbarc" --add env.global --debug
+  - travis encrypt DOCKER_USERNAME="martbarc" --add env.global --debug -X
   - travis report
   - travis encrypt DOCKER_PASSWORD="Mssd15807do" --add env.global --debug
   - travis report
