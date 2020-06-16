@@ -17,7 +17,7 @@ install:
 
 script:
   - gem install travis
-  - winpty 'which travis' login #--skip-completion-check --org --github-token "8cf15b8db8e3c9b9ddaab3bf0572250bca6c1b24"
+  - travis login --github-token $PERSONAL_TOKEN
   #- travis env set DOCKER_USERNAME myusername
   #- travis env set DOCKER_PASSWORD secretsecret
   - travis encrypt DOCKER_USERNAME="martbarc" --add env.global
