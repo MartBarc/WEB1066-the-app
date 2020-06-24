@@ -18,11 +18,13 @@ install:
 script:
   - gem install travis --debug
   - travis endpoint --pro --set-default
-  - travis login --pro --adapter --auto net-http #--auto #--github-token $PERSONAL_TOKEN
+  - curl -H "Authorization: token **TOKEN**" https://api.travis-ci.org/v3/repo/travis-ci%2ftravis-build/key_pair/generated
+  #- curl -H "Authorization: token **TOKEN**" https://api.travis-ci.com/v3/repo/OWNER%2fREPO/key_pair/generated
+  - travis login --pro --github-token $PERSONAL_TOKEN #--adapter net-http #--auto
   #- travis report
   #- travis env set DOCKER_USERNAME myusername
   #- travis env set DOCKER_PASSWORD secretsecret
-  - travis encrypt DOCKER_USERNAME="martbarc" --add env.global --adapter net-http
+  - travis encrypt DOCKER_USERNAME="martbarc" --add env.global --adapter net-http -r owner/project
   - travis report
   - travis encrypt DOCKER_PASSWORD="Mssd15807do" --add env.global --adapter net-http
   - travis report
