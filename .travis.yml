@@ -18,7 +18,7 @@ install:
 script:
   - gem install travis --debug
   - travis endpoint --pro --set-default
-  - travis login --pro --adapter net-http #--auto #--github-token $PERSONAL_TOKEN
+  - travis login --pro --adapter --auto net-http #--auto #--github-token $PERSONAL_TOKEN
   #- travis report
   #- travis env set DOCKER_USERNAME myusername
   #- travis env set DOCKER_PASSWORD secretsecret
