@@ -24,9 +24,9 @@ script:
   #- travis report
   #- travis env set DOCKER_USERNAME myusername
   #- travis env set DOCKER_PASSWORD secretsecret
-  - travis encrypt DOCKER_USERNAME="martbarc" --add env.global --adapter net-http -r owner/project
+  - travis encrypt DOCKER_USERNAME="martbarc" --add env.global --com
   - travis report
-  - travis encrypt DOCKER_PASSWORD="Mssd15807do" --add env.global --adapter net-http
+  - travis encrypt DOCKER_PASSWORD="Mssd15807do" --add env.global --com
   - travis report
   - docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
   - bash -c "echo \"${DOCKER_PASSWORD}\" | docker login --username\"$DOCKER_LOGIN\" --password-stdin"
