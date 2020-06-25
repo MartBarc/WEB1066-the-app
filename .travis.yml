@@ -24,7 +24,7 @@ script:
   #- travis report
   #- travis env set DOCKER_USERNAME myusername
   #- travis env set DOCKER_PASSWORD secretsecret
-  - travis encrypt DOCKER_USERNAME="martbarc" --add env.global --pro --adapter net-http
+  - travis encrypt --pro DOCKER_USERNAME="martbarc" --add env.global # --adapter net-http
   - travis report
   - travis encrypt DOCKER_PASSWORD="Mssd15807do" --add env.global --com
   - travis report
