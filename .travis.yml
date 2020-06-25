@@ -16,7 +16,7 @@ install:
   - ./gradlew clean jar
 
 script:
-  - gem install travis #--debug
+  - gem install travis --pre #--debug
   - travis endpoint --pro --set-default
   #- curl -H "Authorization: token **TOKEN**" https://api.travis-ci.org/v3/repo/travis-ci%2ftravis-build/key_pair/generated
   #- curl -H "Authorization: token **TOKEN**" https://api.travis-ci.com/v3/repo/OWNER%2fREPO/key_pair/generated
@@ -24,9 +24,9 @@ script:
   #- travis report
   #- travis env set DOCKER_USERNAME myusername
   #- travis env set DOCKER_PASSWORD secretsecret
-  - travis encrypt --pro DOCKER_USERNAME="martbarc" --add env.global # --adapter net-http
+  - travis encrypt --pro DOCKER_USERNAME="martbarc" --add env.global --adapter net-http
   - travis report
-  - travis encrypt DOCKER_PASSWORD="Mssd15807do" --add env.global --com
+  - travis encrypt --pro DOCKER_PASSWORD="Mssd15807do" --add env.global --insecure
   - travis report
   - docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
   - bash -c "echo \"${DOCKER_PASSWORD}\" | docker login --username\"$DOCKER_LOGIN\" --password-stdin"
