@@ -1,4 +1,5 @@
 language: java
+os: linux
 dist: trusty
 sudo: required
 services:
@@ -26,8 +27,8 @@ script:
   - travis report
   #- travis env set DOCKER_USERNAME myusername
   #- travis env set DOCKER_PASSWORD secretsecret
-  - travis encrypt DOCKER_USERNAME="martbarc" --add env.global --pro --adapter net-http --unsecure --debug
-  - travis encrypt --pro DOCKER_PASSWORD="Mssd15807do" --add env.global --adapter net-http
+  - travis encrypt DOCKER_USERNAME="martbarc" --add env.global --pro --adapter net-http --insecure --debug
+  - travis encrypt DOCKER_PASSWORD="Mssd15807do" --debug
   - docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
   - bash -c "echo \"${DOCKER_PASSWORD}\" | docker login --username\"$DOCKER_LOGIN\" --password-stdin"
   #docker push martbarc/web1066-the-app:tagname
