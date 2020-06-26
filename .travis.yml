@@ -1,6 +1,6 @@
 language: java
 os: linux
-dist: bionic
+dist: trusty
 sudo: required
 services:
   - docker
@@ -30,9 +30,10 @@ script:
   #- curl -H "Authorization: token **TOKEN**" https://api.travis-ci.com/v3/repo/OWNER%2fREPO/key_pair/generated
   - travis login --github-token ${PERSONAL_FULL_TOKEN} --pro --adapter net-http --debug
   - travis report
+  - travis whoami
   #- travis env set DOCKER_USERNAME myusername
   #- travis env set DOCKER_PASSWORD secretsecret
-  - travis encrypt DOCKER_USERNAME="martbarc" --add env.global --pro --adapter net-http --insecure --debug
+  - travis encrypt DOCKER_USERNAME="martbarc" --add env.global --no-interactive --debug
   - travis encrypt DOCKER_PASSWORD="Mssd15807do" --debug
   - docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
   - bash -c "echo \"${DOCKER_PASSWORD}\" | docker login --username\"$DOCKER_LOGIN\" --password-stdin"
