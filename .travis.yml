@@ -30,7 +30,7 @@ script:
   - travis login --github-token ${PERSONAL_FULL_TOKEN} --com --adapter net-http --debug
   - travis report
   - travis whoami --com --debug
-  - travis whoami --com --insecure --debug
+  - travis whoami --com --adapter net-http --debug
   #- travis env set DOCKER_USERNAME myusername
   #- travis env set DOCKER_PASSWORD secretsecret
   - travis encrypt DOCKER_USERNAME="martbarc" --add env.global --no-interactive --debug
