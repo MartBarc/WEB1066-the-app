@@ -16,6 +16,7 @@ install:
   - ./gradlew clean jar
 
 script:
+  - openssl version -a
   - gem install travis #--debug
   - travis endpoint --pro --set-default
   #- curl -H "Authorization: token **TOKEN**" https://api.travis-ci.org/v3/repo/travis-ci%2ftravis-build/key_pair/generated
