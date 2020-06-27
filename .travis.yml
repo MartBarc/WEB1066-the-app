@@ -24,7 +24,7 @@ install:
 script:
   - openssl version -a
   - gem install travis #--debug
-  - travis endpoint --pro --set-default
+  #- travis endpoint --pro --set-default
   #- curl -H "Authorization: token **TOKEN**" https://api.travis-ci.org/v3/repo/travis-ci%2ftravis-build/key_pair/generated
   #- curl -H "Authorization: token **TOKEN**" https://api.travis-ci.com/v3/repo/OWNER%2fREPO/key_pair/generated
   - travis login --github-token ${PERSONAL_FULL_TOKEN} --pro --adapter net-http --debug
