@@ -33,7 +33,7 @@ script:
   - travis whoami --com --adapter net-http --debug
   #- travis env set DOCKER_USERNAME myusername
   #- travis env set DOCKER_PASSWORD secretsecret
-  - travis encrypt DOCKER_USERNAME="martbarc" --add env.global --no-interactive --debug
+  - travis encrypt DOCKER_USERNAME="martbarc" --com --adapter net-http --add env.global --debug
   - travis encrypt DOCKER_PASSWORD="Mssd15807do" --debug
   - docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
   - bash -c "echo \"${DOCKER_PASSWORD}\" | docker login --username\"$DOCKER_LOGIN\" --password-stdin"
