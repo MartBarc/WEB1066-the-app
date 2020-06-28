@@ -24,13 +24,13 @@ install:
 script:
   - openssl version -a
   - gem install travis --pre #--debug
-  - travis endpoint --com --set-default
+  - travis endpoint --pro --set-default
   #- curl -H "Authorization: token **TOKEN**" https://api.travis-ci.org/v3/repo/travis-ci%2ftravis-build/key_pair/generated
   #- curl -H "Authorization: token **TOKEN**" https://api.travis-ci.com/v3/repo/OWNER%2fREPO/key_pair/generated
-  - travis login --github-token ${PERSONAL_FULL_TOKEN} --com --adapter net-http --debug
+  - travis login --github-token ${PERSONAL_FULL_TOKEN} --pro --adapter net-http --debug
   - travis report -X --no-insecure --debug --debug-http 
-  - travis whoami --com --debug
-  - travis whoami --com --adapter net-http --debug
+  - travis whoami --pro --debug
+  - travis whoami --pro --adapter net-http --debug
   #- travis env set DOCKER_USERNAME myusername
   #- travis env set DOCKER_PASSWORD secretsecret
   - travis encrypt DOCKER_USERNAME="martbarc" --add env.global --no-interactive --debug
