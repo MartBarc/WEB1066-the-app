@@ -24,17 +24,17 @@ install:
 script:
   - openssl version -a
   - gem install travis #--debug
-  - travis endpoint --com --set-default
+  - travis endpoint --com --adapter net-http --set-default
   #- curl -H "Authorization: token **TOKEN**" https://api.travis-ci.org/v3/repo/travis-ci%2ftravis-build/key_pair/generated
   #- curl -H "Authorization: token **TOKEN**" https://api.travis-ci.com/v3/repo/OWNER%2fREPO/key_pair/generated
-  - travis login --github-token ${PERSONAL_FULL_TOKEN} --com --adapter net-http --debug
+  - travis login --github-token ${PERSONAL_FULL_TOKEN} --debug
   - travis report --com --adapter net-http --debug
   #- travis whoami --com --debug
   - travis whoami --com --adapter net-http --debug
   #- travis env set DOCKER_USERNAME myusername
   #- travis env set DOCKER_PASSWORD secretsecret
   - travis pubkey --com --adapter net-http -r MartBarc/WEB1066-the-app
-  - travis encrypt --com --adapter net-http DOCKER_USERNAME=martbarc --add env.global -x
+  - travis encrypt --com --adapter net-http DOCKER_USERNAME=martbarc --add env.global -r MartBarc/WEB1066-the-app --debug
   - travis encrypt DOCKER_PASSWORD="Mssd15807do" --add env.global --com --adapter net-http --debug
   - docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
   - bash -c "echo \"${DOCKER_PASSWORD}\" | docker login --username\"$DOCKER_LOGIN\" --password-stdin"
