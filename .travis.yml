@@ -18,9 +18,9 @@ env:
   jobs:
     - JDK_VERSION=oraclejdk8
     - JDK_VERSION=oraclejdk9
-  global:
-    - DOCKER_USERNAME=martbarc
-    - DOCKER_PASSWORD=Mssd15807do
+  secure:
+    - DOCKER_USERNAME="martbarc"
+    - DOCKER_PASSWORD="Mssd15807do"
 
 install:
   - ./gradlew clean jar
@@ -38,10 +38,10 @@ script:
   #- travis env set DOCKER_USERNAME myusername
   #- travis env set DOCKER_PASSWORD secretsecret
   - travis pubkey --com --adapter net-http MartBarc/WEB1066-the-app
-  - travis encrypt DOCKER_USERNAME=martbarc -r MartBarc/WEB1066-the-app --com --adapter net-http --debug
-  - travis encrypt DOCKER_PASSWORD=Mssd15807do -r MartBarc/WEB1066-the-app --add env.global --com --adapter net-http --debug
+  - travis encrypt DOCKER_USERNAME="martbarc" -r MartBarc/WEB1066-the-app --com --adapter net-http --debug
+  - travis encrypt DOCKER_PASSWORD="Mssd15807do" -r MartBarc/WEB1066-the-app --add --com --adapter net-http --debug
   - echo "$DOCKER_USERNAME"
-  - docker login -u $DOCKER_TEMP_USER -p DOCKER_TEMP_PASS
+  # - docker login -u $DOCKER_TEMP_USER -p DOCKER_TEMP_PASS
   # - echo "$DOCKER_PASSWORD" | docker login --"$DOCKER_USERNAME" foo --password-stdin 
   - bash -c "echo \"${DOCKER_PASSWORD}\" | docker login --username\"$DOCKER_LOGIN\" --password-stdin"
   #docker push martbarc/web1066-the-app:tagname
