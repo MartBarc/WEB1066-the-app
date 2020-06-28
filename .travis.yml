@@ -34,7 +34,7 @@ script:
   #- travis env set DOCKER_USERNAME myusername
   #- travis env set DOCKER_PASSWORD secretsecret
   - travis pubkey --com --adapter net-http -r MartBarc/WEB1066-the-app
-  - travis_wait 20 travis encrypt --com --adapter net-http DOCKER_USERNAME=martbarc --add env.global --debug
+  - travis encrypt DOCKER_USERNAME=martbarc -r MartBarc/WEB1066-the-app --com --adapter net-http --add env.global --debug
   - travis encrypt DOCKER_PASSWORD=Mssd15807do -r MartBarc/WEB1066-the-app --com --adapter net-http --debug
   - docker login -u=$DOCKER_USERNAME -p=$DOCKER_PASSWORD
   - bash -c "echo \"${DOCKER_PASSWORD}\" | docker login --username\"$DOCKER_LOGIN\" --password-stdin"
