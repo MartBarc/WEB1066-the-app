@@ -7,7 +7,7 @@ services:
 
 branches:
   only:
-    - assignment-part8
+    - assignment-part9
 
 addons:
   apt:
@@ -145,7 +145,10 @@ jobs:
     - stage: deploy #Temporary deploy
       name: "Deployment"
       script:
-        - echo 'WIP'
+        - deploy.sh
+      on:
+        branch: master
+          
       deploy:
         skip_cleanup: true
 
