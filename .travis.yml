@@ -145,7 +145,7 @@ jobs:
     - stage: deploy #Temporary deploy
       name: "Deployment"
       script:
-        - deploy.sh
+        - ./deploy.sh
       on:
         branch: master
           
