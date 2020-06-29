@@ -18,9 +18,9 @@ env:
   jobs:
     - JDK_VERSION=oraclejdk8
     - JDK_VERSION=oraclejdk9
-  global:
-    - secure: "rYu/I9/BpF7GBIK1PuDd5cbeWEgA9VKi5Oh85l0qDkaNCzy4SjjtUSlsMplloJej5WoAlLdNhCfYg+lLa7as3iycBqN94Dg5V8H7diF9rsbxND2flhD7hK1jeAqLBXuAa3DGaxdgpR1FEdTWEq1Pf25Z2KlB8JtP6B9FiFXoFYy0OGYYztFng/y8AD7ZdW9D0m5mdwNWh7/fgulIrfp45yrQyw4Emjhk71/nmpsyop5coFwQneMTrS108t8/SxKMD5H0XJhYfraQaCbE2B6MsXK4SHwsn2AwUreTb9OLpUbzz9VcO7DXYMgTGPHnY39N4ZMxd2Bd/+23IJ8I+y2w9fQMaHd746V8v1+y+42C9ASQ5gazvzbQvKJpkGrxwUrYUMaztFPX4Dpu/F5yynq9ZTazw3weLG62V0mA+UIw+FKvo0vsr9Im979TG3wPH9JRF7SzAf7VXhD6DJztrdvDAhmpPxgcYCUpvmn5pHcIIi8IDZPHzBN1WBk5eS1XThX2RKxGjdKfYj61NxivFMrYaDaVWgPwOdUZV2MTa4Ljw7w6Kw6fpSro7PmHf6MtyE9cobkREDYbMCtuqjEjglB1lTP/eSUlYQDHxmd424p1P5cBtFacVA3xMFnhs9pOpONQY7Icpv3kpTfW3w6dveoojmJsXapfGCWA7Du7V/AcjYs="
-    - secure: "GG1ie1tKdhL9GNXhiOlA+YXbCIcAsrlhhedkPQ0DSQc047yPtlGe9VuivLwKXwcWKcOn+5MZWyvN7aQ6IFZjm2d00Biqv3iDraY3uPIZ4PHb9cLK2VnhzIe2k0m16En6uP9NgPN5LAvFelETuJcoEbFcn/gN6WjEeLoy3A/JOrB41hWtsAsN/NTsNBJ61Q8zvNAebdrX9bduKLAG52ZUYLtDT1yJpEkP+HZ29173iio9L9BtV9kGSw0KANkP9N3bV7b4STKqRRUH1uxDmCMRECL0vm1tqEXgaW6tnaomv5ZvTcPCePo1iv1oDNEanTXZmTBeFFFAXwHqhsOsh5BMcgm+7MikEwgYYl6d6ZvUlhbFebjoz+m9PX/RrpOFtb0je81/7h7SA5Eyq3cflqBG3WRKn2JKTSvA1lReNQKy5ytDDk/QBGS9jXSCrPeR91cwuxHh+8wZNGPuH8A1y6UZaS5tJdZa4uNUlrWKSJ58psGrRcrXO4MU82Qi+zEHJVcbmMNHf6ifrM4Q0H77taC7G/G2US8nrJ6Gr6ySjRLQk9yP0/r1DyHS4OPSddvvGWiitRCsXv52Clv+cfhuKbRQcwBbwmXsNwONqIjNzUc6cqzrP+NiydJCg69hMaivCjqye+ZLdRFEtduZCTKWwvVxXG0GkG6dwO+GWgfBuLXPGms="
+  #global:
+    #- secure: "rYu/I9/BpF7GBIK1PuDd5cbeWEgA9VKi5Oh85l0qDkaNCzy4SjjtUSlsMplloJej5WoAlLdNhCfYg+lLa7as3iycBqN94Dg5V8H7diF9rsbxND2flhD7hK1jeAqLBXuAa3DGaxdgpR1FEdTWEq1Pf25Z2KlB8JtP6B9FiFXoFYy0OGYYztFng/y8AD7ZdW9D0m5mdwNWh7/fgulIrfp45yrQyw4Emjhk71/nmpsyop5coFwQneMTrS108t8/SxKMD5H0XJhYfraQaCbE2B6MsXK4SHwsn2AwUreTb9OLpUbzz9VcO7DXYMgTGPHnY39N4ZMxd2Bd/+23IJ8I+y2w9fQMaHd746V8v1+y+42C9ASQ5gazvzbQvKJpkGrxwUrYUMaztFPX4Dpu/#F5yynq9ZTazw3weLG62V0mA+UIw+FKvo0vsr9Im979TG3wPH9JRF7SzAf7VXhD6DJztrdvDAhmpPxgcYCUpvmn5pHcIIi8IDZPHzBN1WBk5eS1XThX2RKxGjdKfYj61NxivFMrYaDaVWgPwOdUZV2MTa4Ljw7w6Kw6fpSro7PmHf6MtyE9cobkREDYbMCtuqjEjglB1lTP/eSUlYQDHxmd424p1P5cBtFacVA3xMFnhs9pOpONQY7Icpv3kpTfW3w6dveoojmJsXapfGCWA7Du7V/AcjYs="
+    #- secure: "GG1ie1tKdhL9GNXhiOlA+YXbCIcAsrlhhedkPQ0DSQc047yPtlGe9VuivLwKXwcWKcOn+5MZWyvN7aQ6IFZjm2d00Biqv3iDraY3uPIZ4PHb9cLK2VnhzIe2k0m16En6uP9NgPN5LAvFelETuJcoEbFcn/gN6WjEeLoy3A/JOrB41hWtsAsN/NTsNBJ61Q8zvNAebdrX9bduKLAG52ZUYLtDT1yJpEkP+HZ29173iio9L9BtV9kGSw0KANkP9N3bV7b4STKqRRUH1uxDmCMRECL0vm1tqEXgaW6tnaomv5ZvTcPCePo1iv1oDNEanTXZmTBeFFFAXwHqhsOsh5BMcgm+7MikEwgYYl6d6ZvUlhbFebjoz+m9PX/RrpOFtb0je81/7h7SA5Eyq3cflqBG3WRKn2JKTSvA1lReNQKy5ytDDk/#QBGS9jXSCrPeR91cwuxHh+8wZNGPuH8A1y6UZaS5tJdZa4uNUlrWKSJ58psGrRcrXO4MU82Qi+zEHJVcbmMNHf6ifrM4Q0H77taC7G/G2US8nrJ6Gr6ySjRLQk9yP0/r1DyHS4OPSddvvGWiitRCsXv52Clv+cfhuKbRQcwBbwmXsNwONqIjNzUc6cqzrP+NiydJCg69hMaivCjqye+ZLdRFEtduZCTKWwvVxXG0GkG6dwO+GWgfBuLXPGms="
 
 install:
   - ./gradlew clean jar
@@ -33,9 +33,9 @@ script:
   - travis report --com --adapter net-http
   - travis whoami --com --adapter net-http
   #- travis pubkey --com --adapter net-http MartBarc/WEB1066-the-app
-  - echo ${DOCKER_LOGIN}
-  #- travis encrypt --add env --override DOCKER_LOGIN="martbarc" --com --adapter net-http -r MartBarc/WEB1066-the-app --debug
-  #- travis encrypt --add env --override DOCKER_PASSWORD="Mssd15807do" --com --adapter net-http -r MartBarc/WEB1066-the-app --debug
+  #- echo ${DOCKER_LOGIN}
+  - travis encrypt --add env --override DOCKER_LOGIN="martbarc" --com --adapter net-http -r MartBarc/WEB1066-the-app --debug
+  - travis encrypt --add env --override DOCKER_PASSWORD="Mssd15807do" --com --adapter net-http -r MartBarc/WEB1066-the-app --debug
   - bash -c "echo \"${DOCKER_PASSWORD}\" | docker login --username \"$DOCKER_LOGIN\" --password-stdin"
   #docker push martbarc/web1066-the-app:tagname
 
