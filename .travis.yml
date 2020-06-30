@@ -144,8 +144,10 @@ jobs:
 
     - stage: deploy #Temporary deploy
       name: "Deployment"
+      provider: script
       script:
-        - deploy.sh
+        - chmod +x ./script/deploy.sh
+        - ./script/deploy.sh
       on:
         branch: master
 
