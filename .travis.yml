@@ -16,7 +16,7 @@ addons:
 
 env:
   jobs:
-    - JDK_VERSION=oraclejdk8
+    # - JDK_VERSION=oraclejdk8
     - JDK_VERSION=oraclejdk9
   global:
     - secure: "rYu/I9/BpF7GBIK1PuDd5cbeWEgA9VKi5Oh85l0qDkaNCzy4SjjtUSlsMplloJej5WoAlLdNhCfYg+lLa7as3iycBqN94Dg5V8H7diF9rsbxND2flhD7hK1jeAqLBXuAa3DGaxdgpR1FEdTWEq1Pf25Z2KlB8JtP6B9FiFXoFYy0OGYYztFng/y8AD7ZdW9D0m5mdwNWh7/fgulIrfp45yrQyw4Emjhk71/nmpsyop5coFwQneMTrS108t8/SxKMD5H0XJhYfraQaCbE2B6MsXK4SHwsn2AwUreTb9OLpUbzz9VcO7DXYMgTGPHnY39N4ZMxd2Bd/+23IJ8I+y2w9fQMaHd746V8v1+y+42C9ASQ5gazvzbQvKJpkGrxwUrYUMaztFPX4Dpu/F5yynq9ZTazw3weLG62V0mA+UIw+FKvo0vsr9Im979TG3wPH9JRF7SzAf7VXhD6DJztrdvDAhmpPxgcYCUpvmn5pHcIIi8IDZPHzBN1WBk5eS1XThX2RKxGjdKfYj61NxivFMrYaDaVWgPwOdUZV2MTa4Ljw7w6Kw6fpSro7PmHf6MtyE9cobkREDYbMCtuqjEjglB1lTP/eSUlYQDHxmd424p1P5cBtFacVA3xMFnhs9pOpONQY7Icpv3kpTfW3w6dveoojmJsXapfGCWA7Du7V/AcjYs="
