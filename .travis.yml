@@ -43,6 +43,7 @@ stages:
   - test #actually docker stage
   - tests-check
   - tests-report
+  - build
   - deploy
 
 jobs:
@@ -141,6 +142,11 @@ jobs:
       name: "Test-Report"
       script:
         - find . -name jacocoTestReport.csv|xargs cat|awk -F',' '{print $3" "$4" "$5}'
+
+    - stage: build
+      name: "Build"
+      script:
+        - ./gradlew -p ./monolithic/ui packageToContainer
 
     - stage: deploy
       name: "Deployment"
