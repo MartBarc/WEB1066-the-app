@@ -193,12 +193,14 @@ jobs:
       jdk: oraclejdk8
       name: "Build"
       script:
-        - ./gradlew -p ./monolithic/ui packageToContainer --debug
+        - bash -c "echo \"${DOCKER_PASSWORD}\" | docker login --username \"$DOCKER_LOGIN\" --password-stdin"
+        - ./gradlew -p ./monolithic/ui packageToContainer
 
     - stage: build
       jdk: oraclejdk9
       name: "Build"
       script:
+        - bash -c "echo \"${DOCKER_PASSWORD}\" | docker login --username \"$DOCKER_LOGIN\" --password-stdin"
         - ./gradlew -p ./monolithic/ui packageToContainer
 
     - stage: deploy
