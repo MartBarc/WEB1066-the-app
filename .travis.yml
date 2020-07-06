@@ -194,6 +194,7 @@ jobs:
       name: "Build"
       script:
         - bash -c "echo \"${DOCKER_PASSWORD}\" | docker login --username \"$DOCKER_LOGIN\" --password-stdin"
+        #Changed build.gradle monolithic-ui baseImage = 'wegenenverkeer/tomcat7-java8' to maluuba/tomcat7
         - ./gradlew -p ./monolithic/ui packageToContainer
 
     - stage: build
