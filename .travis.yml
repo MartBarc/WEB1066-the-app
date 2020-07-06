@@ -43,7 +43,7 @@ stages:
   - test #actually docker stage
   - tests-check
   - tests-report
-  - deploy
+  # - deploy
 
 jobs:
   include:
@@ -142,17 +142,28 @@ jobs:
       script:
         - find . -name jacocoTestReport.csv|xargs cat|awk -F',' '{print $3" "$4" "$5}'
 
-    - stage: deploy #Temporary deploy
+    # - stage: deploy #Temporary deploy
+    #   name: "Deployment"
+    #   provider: script
+    #   script:
+    #     - chmod +x ./script/deploy.sh
+    #     - ./script/deploy.sh
+    #   on:
+    #     # branch: master
+    #     all_branches: true
+    #     condition:
+
+    deploy:
       name: "Deployment"
       provider: script
-      script:
-        - chmod +x ./script/deploy.sh
-        - ./script/deploy.sh
+      script: >-
+        chmod +x ./script/deploy.sh &&
+        ./script/deploy.sh
       on:
-        branch: master
-
-      deploy:
-        skip_cleanup: true
+        # branch: master
+        all_branches: true
+        #condition:
+      skip_cleanup: true
 
 notifications:
   email: false
