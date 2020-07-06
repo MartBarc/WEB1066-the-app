@@ -153,17 +153,17 @@ jobs:
     #     all_branches: true
     #     condition:
 
-    deploy:
-      name: "Deployment"
-      provider: script
-      script: >-
-        chmod +x ./script/deploy.sh &&
-        ./script/deploy.sh
-      on:
-        # branch: master
-        all_branches: true
-        #condition:
-      skip_cleanup: true
+deploy:
+  name: "Deployment"
+  provider: script
+  script: >-
+    chmod +x ./script/deploy.sh &&
+    ./script/deploy.sh
+  on:
+    # branch: master
+    all_branches: true
+    #condition:
+  skip_cleanup: true
 
 notifications:
   email: false
