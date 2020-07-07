@@ -21,14 +21,14 @@ env:
 install:
   - ./gradlew clean jar
 
-#script:
-  #- openssl version -a
-  #- gem install travis
-  #- travis endpoint --com --adapter net-http --set-default
-  #- travis login --github-token ${PERSONAL_FULL_TOKEN} --com --adapter net-http
+script:
+  - openssl version -a
+  - gem install travis
+  - travis endpoint --com --adapter net-http --set-default
+  - travis login --github-token ${PERSONAL_FULL_TOKEN} --com --adapter net-http
   #- travis encrypt --add env --override --com DOCKER_LOGIN="xxx" --adapter net-http -r MartBarc/WEB1066-the-app --debug
   #- travis encrypt --add env --override --com DOCKER_PASSWORD="xxx" --adapter net-http -r MartBarc/WEB1066-the-app --debug
-  #- bash -c "echo \"${DOCKER_PASSWORD}\" | docker login --username \"$DOCKER_LOGIN\" --password-stdin"
+  - bash -c "echo \"${DOCKER_PASSWORD}\" | docker login --username \"$DOCKER_LOGIN\" --password-stdin"
 
 stages:
   #- test #actually docker stage
