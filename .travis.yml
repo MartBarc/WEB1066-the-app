@@ -5,14 +5,10 @@ sudo: required
 services:
   - docker
 
-branches:
-  only:
-    - assignment-part9
-
-addons:
-  apt:
-    packages:
-      - openssl
+# addons:
+#   apt:
+#     packages:
+#       - openssl
 
 env:
   jobs:
@@ -26,19 +22,14 @@ env:
 install:
   - ./gradlew clean jar
 
-script:
-  - openssl version -a
-  - gem install travis
-  - travis endpoint --com --adapter net-http --set-default
-  - travis login --github-token ${PERSONAL_FULL_TOKEN} --com --adapter net-http
-  - travis report --com --adapter net-http
-  - travis whoami --com --adapter net-http
-  #- travis pubkey --com --adapter net-http MartBarc/WEB1066-the-app
-  #- echo ${DOCKER_LOGIN}
+#script:
+  #- openssl version -a
+  #- gem install travis
+  #- travis endpoint --com --adapter net-http --set-default
+  #- travis login --github-token ${PERSONAL_FULL_TOKEN} --com --adapter net-http
   #- travis encrypt --add env --override --com DOCKER_LOGIN="xxx" --adapter net-http -r MartBarc/WEB1066-the-app --debug
   #- travis encrypt --add env --override --com DOCKER_PASSWORD="xxx" --adapter net-http -r MartBarc/WEB1066-the-app --debug
-  - bash -c "echo \"${DOCKER_PASSWORD}\" | docker login --username \"$DOCKER_LOGIN\" --password-stdin"
-  #docker push martbarc/web1066-the-app:tagname
+  #- bash -c "echo \"${DOCKER_PASSWORD}\" | docker login --username \"$DOCKER_LOGIN\" --password-stdin"
 
 stages:
   - test #actually docker stage
@@ -139,51 +130,6 @@ jobs:
       script:
         - ./gradlew -p ./monolithic/repository/user check
 
-    #JDK10
-    # - stage: tests-check
-    #   jdk:
-    #     - openjdk10
-    #   env:
-    #     - COVERAGE=0.5
-    #   script:
-    #     - ./gradlew -p ./monolithic/ui check
-    # - stage: tests-check
-    #   jdk: openjdk10
-    #   env:
-    #     - COVERAGE=0.5
-    #   script:
-    #     - ./gradlew -p ./monolithic/service/cart check
-    # - stage: tests-check
-    #   jdk: openjdk10
-    #   env:
-    #     - COVERAGE=0.5
-    #   script:
-    #     - ./gradlew -p ./monolithic/service/user check
-    # - stage: tests-check
-    #   jdk: openjdk10
-    #   env:
-    #     - COVERAGE=0.24
-    #   script:
-    #     - ./gradlew -p ./monolithic/repository/order check
-    # - stage: tests-check
-    #   jdk: openjdk10
-    #   env:
-    #     - COVERAGE=0.5
-    #   script:
-    #     - ./gradlew -p ./monolithic/repository/cart check
-    # - stage: tests-check
-    #   jdk: openjdk10
-    #   env:
-    #     - COVERAGE=0.5
-    #   script:
-    #     - ./gradlew -p ./monolithic/repository/product check
-    # - stage: tests-check
-    #   jdk: openjdk10
-    #   env:
-    #     - COVERAGE=0.24
-    #   script:
-    #     - ./gradlew -p ./monolithic/repository/user check
-
     - stage: tests-report
       name: "Test-Report"
       script:
@@ -191,17 +137,8 @@ jobs:
 
     #Changed build.gradle monolithic-ui baseImage = 'wegenenverkeer/tomcat7-java8' to maluuba/tomcat7
     - stage: build
-      jdk: oraclejdk8
       name: "Build"
       script:
-        - bash -c "echo \"${DOCKER_PASSWORD}\" | docker login --username \"$DOCKER_LOGIN\" --password-stdin"
-        - ./gradlew -p ./monolithic/ui packageToContainer
-
-    - stage: build
-      jdk: oraclejdk9
-      name: "Build"
-      script:
-        - bash -c "echo \"${DOCKER_PASSWORD}\" | docker login --username \"$DOCKER_LOGIN\" --password-stdin"
         - ./gradlew -p ./monolithic/ui packageToContainer
 
     - stage: deploy
@@ -211,19 +148,8 @@ jobs:
         chmod +x ./script/deploy.sh &&
         ./script/deploy.sh
       on:
-        # branch: master
-        all_branches: true
-        #condition:
+        branch: master
       skip_cleanup: true
-#
-# deploy:
-#   name: "Deployment"
-#   provider: script
-#   script: >-
-#     chmod +x ./script/deploy.sh &&
-#     ./script/deploy.sh
-#   on:
-#     # branch: master
 #     all_branches: true
 #     #condition:
 #   skip_cleanup: true
