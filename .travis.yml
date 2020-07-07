@@ -31,7 +31,7 @@ script:
   - bash -c "echo \"${DOCKER_PASSWORD}\" | docker login --username \"$DOCKER_LOGIN\" --password-stdin"
 
 stages:
-  #- test #actually docker stage
+  - test #actually docker stage
   - tests-check
   - tests-report
   - build
